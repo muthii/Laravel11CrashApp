@@ -1,4 +1,8 @@
 <x-layout>
-    <h1 class="text-4xl">Hello</h1>
-    <h1 class="text-4xl">Hello2</h1>
+    @auth
+        <h1>Logged in</h1>
+    @endauth
+    @guest
+        <h1>Guest</h1>
+    @endguest
 </x-layout>
