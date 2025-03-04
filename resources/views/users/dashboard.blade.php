@@ -1,7 +1,11 @@
+<!-- filepath: /E:/muthii/Laravel11crashapp/resources/views/users/dashboard.blade.php -->
 <x-layout>
-    <h1 class="title">Dashboard</h1>
-    <div class="mx-auto max-w-screen-sm card">
-        <h2 class="subtitle">Welcome back, {{auth()->user()->username}}</h2>
-        <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.</p>
+    <div class="flex">
+        <x-sidebar />
+        <div class="flex-10 ml-20 p-8">
+            <h1 class="text-2xl font-semibold">Dashboard</h1>
+            <h2 class="subtitle">Hello, {{auth()->user()->username}}</h2>
+            <p>Welcome to your dashboard!</p>
+        </div>
     </div>
 </x-layout>

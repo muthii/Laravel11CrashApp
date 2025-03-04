@@ -37,7 +37,7 @@ class AuthController extends Controller
 
         //Try to login
         if(Auth::attempt($fields, $request->remember)){
-            return redirect()->intended();
+            return redirect()->intended('dashboard');
         }
         else{
             return back()->withErrors([
@@ -48,8 +48,17 @@ class AuthController extends Controller
     }
 
     //Logout user
-    public function logout(){
+    public function logout(Request $request){
+        // Logout the user
         Auth::logout();
-        return redirect()->route('home');
+
+        // Invalidate user's session
+        $request->session()->invalidate();
+
+        // Regenerate CSRF token
+        $request->session()->regenerateToken();
+
+        // Redirect to home
+        return redirect('/');
     }
 }
