@@ -3,8 +3,11 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostController;
 
-Route::view('/','posts.index')->name('home');
+Route::redirect('/', '/posts');
+
+Route::resource('posts', PostController::class);
 
 
 // Routes for authenticated users
@@ -28,3 +31,4 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
 
 });
+
